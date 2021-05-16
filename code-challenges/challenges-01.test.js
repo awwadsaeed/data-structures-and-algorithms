@@ -72,8 +72,8 @@ describe("Testing challenge 3", () => {
 
 const allUpperCase = (arr) => {
   // Solution code here...
-  let newArr=[];
-  arr.forEach(element=>{
+  let newArr = [];
+  arr.forEach(element => {
     newArr.push(element.toUpperCase());
   })
   return newArr;
@@ -101,14 +101,14 @@ describe("Testing challenge 4", () => {
 ------------------------------------------------------------------------------------------------ */
 
 // Solution code here...
-const greeting = (word) => word.toUpperCase()+'!';
+const greeting = (word) => word.toUpperCase() + '!';
 
 
 const speaker = (words, callback) => {
   // Solution code here...
-  let newArr=[];
-  words.forEach(element=>{
-   newArr.push(callback(element));
+  let newArr = [];
+  words.forEach(element => {
+    newArr.push(callback(element));
   });
   return newArr;
 };
@@ -138,14 +138,14 @@ describe("Testing challenge 5", () => {
 
 const addValues = (arr, value) => {
   // Solution code here...
-arr.push(value);
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-for(let i=0;i<times;i++){
-  callback(arr,num);
-}
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
   return arr;
 };
 
@@ -184,15 +184,14 @@ describe("Testing challenge 6", () => {
 
 const createList = (availableItems) => {
   // Solution code here...
-  newArr=[];
-  availableItems.forEach(element=>{
-    if(element.available==true){
+  let newArr = [];
+  availableItems.forEach(element => {
+    if (element.available == true) {
       newArr.push(element.name);
     }
-  })
+  });
   return newArr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
 
@@ -205,10 +204,48 @@ Iterate over the array using forEach to determine the output based on several ru
   - Otherwise, add the number to the output array.
 
 Return the resulting output array.
+xdescribe("Testing challenge 7", () => {
+  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+  test("It should print out messages or numbers", () => {
+    expect(fizzbuzz(inputs)).toStrictEqual([
+      1,
+      2,
+      "Fizz",
+      4,
+      "Buzz",
+      "Fizz",
+      7,
+      8,
+      "Fizz",
+      "Buzz",
+      11,
+      "Fizz",
+      13,
+      14,
+      "Fizz Buzz",
+      16,
+    ]);
+    expect(fizzbuzz(inputs).length).toStrictEqual(16);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let outArr = [];
+  arr.forEach(element => {
+    if (element % 3 == 0 && element % 5 != 0) {
+      outArr.push('Fizz');
+    } else if (element % 5 == 0 && element%3!=0){
+      outArr.push('Buzz')
+    }else if(element%3==0 && element%5==0){
+      outArr.push('Fizz Buzz')
+    }else{
+      outArr.push(element);
+    }
+  })
+  return outArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -282,7 +319,7 @@ describe("Testing challenge 6", () => {
   });
 });
 
-xdescribe("Testing challenge 7", () => {
+describe("Testing challenge 7", () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test("It should print out messages or numbers", () => {
