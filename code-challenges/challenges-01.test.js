@@ -237,11 +237,11 @@ const fizzbuzz = (arr) => {
   arr.forEach(element => {
     if (element % 3 == 0 && element % 5 != 0) {
       outArr.push('Fizz');
-    } else if (element % 5 == 0 && element%3!=0){
+    } else if (element % 5 == 0 && element % 3 != 0) {
       outArr.push('Buzz')
-    }else if(element%3==0 && element%5==0){
+    } else if (element % 3 == 0 && element % 5 == 0) {
       outArr.push('Fizz Buzz')
-    }else{
+    } else {
       outArr.push(element);
     }
   })
