@@ -138,16 +138,20 @@ const gruffaloCrumble = {
   ]
 };
 
-
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.ingredients.map((element) => {
-    for (let i = 0; i <= element.length; i++) {
-      if (element.charAt(i) == " " && i > 2) {
-        result.push(element.slice(i));
-      }
-    }
+  recipe.ingredients.map((element)=>{
+    let counter = 0;
+   for(let i=0;i<=element.length;i++){
+     if(element.charAt(i)==" "){
+       counter=counter+ 1;
+       if(counter==2){
+       result.push(element.slice(i+1));
+       }
+     }
+
+   }
   })
   return result;
 };
