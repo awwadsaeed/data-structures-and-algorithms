@@ -58,7 +58,7 @@ console.log(a) prints [1, 2, 3, 1]
 
 const appendFirstToLast = (arr) => {
   // Solution code here...
-  return arr.push(arr[0]);
+  arr.push(arr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------

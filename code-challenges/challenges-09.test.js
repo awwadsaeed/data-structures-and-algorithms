@@ -14,7 +14,7 @@ const maxInArray = (arr) => {
           x = y;
       }
       return x;
-  },);
+  },0);
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -30,11 +30,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
-  let newArr=[];
-  for(const [key,value] of Object.entries(obj)){
-      newArr.push(key);
-    }
-    return newArr;
+    return Object.keys(obj);
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -46,10 +42,7 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value1) => {
   // Solution code here...
-  for(const [key,value] of Object.entries(obj)){
-      return value.includes(value1);
-    }
-   
+   return(Object.values(obj).includes(value1))
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -154,7 +147,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  let x = false;
+  for(const [key,value] of Object.entries(arr)){
+    if(value.name == character && value.children)
+    x=true;
+  }
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
