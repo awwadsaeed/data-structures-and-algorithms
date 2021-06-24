@@ -21,9 +21,14 @@ Becomes:
 function transformToLis(obj){
   // Solution code here...
   let arr=[];
-  for(const property in obj){
-   arr.push(`<li>${property}: ${obj[property]}</li>`);
+  // for(const property in obj){
+  //  arr.push(`<li>${property}: ${obj[property]}</li>`);
+  // }
+  
+  for(const [key,value] of Object.entries(obj)){
+    arr.push(`<li>${key}: ${value}</li>`)
   }
+
   return arr;
 }
 
@@ -86,14 +91,15 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   let resultArr = [];
+
   input.map(item => {
     let arr =[];
-    resultArr.push(arr);
     item.map(itm => {
       if(typeof(itm) === 'number' && itm % 5 === 0 ) {
         arr.push(Math.pow(2,itm));
       }
     });
+    resultArr.push(arr);
   });
   return resultArr;
 };

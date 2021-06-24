@@ -9,8 +9,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str) {
   // Solution code here...
-  let output = str.split('').slice(-10);
-  return output;
+  return (str.split('').splice(-10));
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,16 +28,17 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
 
-  let maxNumber = 1;
+  // let maxNumber = 1;
   // Solution code here...
-  for (let i = 0; i < matrix.length; i++) {
-    for (let l = 0; l < matrix[i].length; l++) {
-      if (matrix[i][l] > maxNumber) {
-        maxNumber = matrix[i][l];
+  let max = 0;
+  matrix.forEach(element => {
+    element.forEach(item => {
+      if (item > max) {
+        max = item;
       }
-    }
-  }
-  return maxNumber;
+    })
+  })
+  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
- 
+
   let newArr = [];
   // Solution code here...
   for (let h = 0; h < hoursOpen.length; h++) {
@@ -101,6 +101,7 @@ const grandTotal = (stores) => {
 
   }
   return newArr;
+  
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,7 +117,7 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 const salesData = (hours, data) => {
   const newArr = [];
   for (let i = 0; i < hours.length; i++) {
-      newArr.push({ sales: `${data[i]} cookies`, time: hours[i] });
+    newArr.push({ sales: `${data[i]} cookies`, time: hours[i] });
   }
   return newArr;
 };
@@ -250,20 +251,20 @@ Run your tests from the console: jest challenge-12.test.js
 
 describe('Testing challenge 1', () => {
   test('it should return the last 10 characters of a string as an array', () => {
-    expect(returnTen('hello world')).toStrictEqual(['e','l','l','o',' ','w','o','r','l','d']);
-    expect(returnTen('world')).toStrictEqual(['w','o','r','l','d']);
+    expect(returnTen('hello world')).toStrictEqual(['e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']);
+    expect(returnTen('world')).toStrictEqual(['w', 'o', 'r', 'l', 'd']);
   });
 });
 
 describe('Testing challenge 2', () => {
   test('It should return the max value', () => {
-    expect(findMax([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(24);
+    expect(findMax([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(24);
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should return the total sum', () => {
-    expect(totalSum([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(81);
+    expect(totalSum([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(81);
     expect(totalSum([])).toStrictEqual(0);
   });
 });

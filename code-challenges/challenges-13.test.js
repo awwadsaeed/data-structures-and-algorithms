@@ -8,7 +8,7 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
   // Solution code here...
-  if(arr.length==0){
+  if (arr.length == 0) {
     return -1
   }
   let testlength = 0;
@@ -32,7 +32,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
-  return arr.map(element=>{
+  return arr.map(element => {
     return element[0];
   })
 };
@@ -47,8 +47,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
-  return arr.filter(element=>{
-    if(element.includes(':)')){
+  return arr.filter(element => {
+    if (element.includes(':)')) {
       return element;
     }
   })
@@ -64,7 +64,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   return arr.map(phoneNumber => {
-      return phoneNumber.substring(1, 4) + phoneNumber.substring(6, 9) + phoneNumber.substring(10, 14);
+    return phoneNumber.substring(1, 4) + phoneNumber.substring(6, 9) + phoneNumber.substring(10, 14);
   });
 };
 
@@ -79,8 +79,8 @@ For example, 'abcdefg' returns 'bdf'
 const onlyOddChars = (str) => {
   // Solution code here...
   let test = '';
-  for(let i=0;i<str.length;i++){
-    if(i%2 !=0){
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 != 0) {
       test = test + str.charAt(i);
     }
   }
@@ -95,18 +95,24 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
-  let result = arr.map(element=>{
-    if(element.includes(':)')){
-      return true;
-    }else{
+  // let result = arr.map(element => {
+  //   if (element.includes(':)')) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // })
+  // if (result.includes(false)) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
+ for(let i=0;i<arr.length;i++){
+    if(!arr[i].includes(':)')){
       return false;
-    }
-  })
-  if(result.includes(false)){
-    return false;
-  }else{
-    return true;
+    }  
   }
+  return true;
 };
 
 /* ------------------------------------------------------------------------------------------------
