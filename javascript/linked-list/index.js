@@ -71,6 +71,51 @@ class LinkedList {
 
 
     }
+    append(value) {
+        let node1 = new Node(value);
+        if (!this.head) {
+            this.head = node1;
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node1;
+        }
+    }
+    insertAfter(newValue, value) {
+        let node1 = new Node(newValue);
+        let current = this.head;
+
+        while (current) {
+            if (current.value == value) {
+                node1.next = current.next;
+                current.next = node1;
+                break;
+            }
+            current = current.next;
+
+        }
+    }
+    insertBefore(newValue, value) {
+        let node1 = new Node(newValue);
+        let current = this.head;
+        if (value == this.head.value) {
+            node1.next = this.head;
+            this.head = node1;
+        } else {
+            while (current) {
+                if (current.next.value == value) {
+                    node1.next = current.next;
+                    current.next = node1;
+                    break;
+                }
+                current = current.next;
+
+            }
+        }
+    }
+
 
 }
 
