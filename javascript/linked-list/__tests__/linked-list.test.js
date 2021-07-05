@@ -85,4 +85,42 @@ describe('checks if it includes a value',()=>{
 
   })
 
+    it('k is greater than the length ',()=>{
+      const ll = new LinkedLilst();
+      ll.append('first');
+      ll.append('sec');
+      ll.append('thir');
+      ll.append('fourth');
+      expect(ll.kthFromEnd(15)).toBe('Exception');
+    });
+    it('k and the length of the list are the same',()=>{
+      const ll = new LinkedLilst();
+      ll.append('first');
+      ll.append('sec');
+      ll.append('thir');
+      ll.append('fourth');
+      expect(ll.kthFromEnd(4)).toBe('Exception');
+    });
+    it('k is not a positive integer',()=>{
+      const ll = new LinkedLilst();
+      ll.append('first');
+      ll.append('sec');
+      ll.append('thir');
+      ll.append('fourth');
+      expect(ll.kthFromEnd(-4)).toBe('Exception');
+    });
+    it('linked list of size one',()=>{
+      const ll = new LinkedLilst();
+      ll.append('first');
+      expect(ll.kthFromEnd(0)).toBe('first');
+    });
+    it('happy path',()=>{
+      const ll = new LinkedLilst();
+      ll.append('first');
+      ll.append('sec');
+      ll.append('thir');
+      ll.append('fourth');
+      expect(ll.kthFromEnd(2)).toBe('sec');
+    });
+
 })

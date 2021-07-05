@@ -5,7 +5,7 @@ bigO is between O(1) and O(n)
 
 ## Challenge
 <!-- Description of the challenge -->
-create the insertBefore(), insertAfter() and append() methods.  
+create a method to find the kth node from the end.  
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 while loop to traverse the linked list. as for why? because we dont know the length of the list.
@@ -20,6 +20,7 @@ toString(): lists out all the node values as strings.
 insertBefore(): takes a new value and a value to insert before.
 isnertAfter(): takes a new value and a value to insert after.
 append(): takes a value to insert at the end of the linked list.  
+kthFromEnd(): finds the kth element from the end.
 ## whiteboard Process  
 ![whiteboard](./whiteboard.JPG);
 
