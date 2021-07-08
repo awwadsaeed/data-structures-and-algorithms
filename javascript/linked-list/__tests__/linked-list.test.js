@@ -29,6 +29,7 @@ describe('checks if it includes a value',()=>{
     ll.insert(false);
     ll.insert('c');
     ll.insert('d');
+    expect(ll.rear.value).toBe('a');
     expect(ll.toString()).toBe('{d} -> {c} -> {false} -> {a}');
   })
   test(' add a node to the end ',()=>{
@@ -121,6 +122,7 @@ describe('checks if it includes a value',()=>{
       ll.append('sec');
       ll.append('thir');
       ll.append('fourth');
+      expect(ll.rear.value).toBe('fourth');
       expect(ll.kthFromEnd(2)).toBe('sec');
     });
 
