@@ -9,6 +9,7 @@ class LinkedList {
     constructor() {
         this.head = null;
         this.counter = 0;
+        this.rear = null;
 
     }
 
@@ -21,6 +22,7 @@ class LinkedList {
             let addNode = new Node(value);
             if (!this.head) {
                 this.head = addNode;
+                this.rear = addNode;
             } else {
                 addNode.next = this.head;
                 this.head = addNode;
@@ -78,12 +80,14 @@ class LinkedList {
         let node1 = new Node(value);
         if (!this.head) {
             this.head = node1;
+            this.rear = node1;
         } else {
             let current = this.head;
             while (current.next) {
                 current = current.next;
             }
             current.next = node1;
+            this.rear = node1;
         }
     }
     insertAfter(newValue, value) {
@@ -93,6 +97,9 @@ class LinkedList {
 
         while (current) {
             if (current.value == value) {
+                if(current.next==null){
+                    this.rear=node1;
+                }
                 node1.next = current.next;
                 current.next = node1;
                 break;
@@ -152,6 +159,6 @@ function alternative(list1, list2) {
             current2 = current2.next;
         }
     }
-    return(list3.toString());
+    return (list3.toString());
 }
-module.exports = {LinkedList,alternative};
+module.exports = { LinkedList, alternative };
