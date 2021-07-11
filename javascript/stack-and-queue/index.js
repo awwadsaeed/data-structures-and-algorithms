@@ -7,18 +7,18 @@ class Node {
 }
 
 class Stack {
-    constructor(linkedList) {
-        this.storage = linkedList;
+    constructor() {
+        this.top = null;
     }
     peek() {
-        if (!this.storage.head) {
+        if (!this.top) {
             try {
                 throw new Error('cant find the peek of an empty stack');
             } catch (e) {
                 return e.message;
             }
         }
-        return this.storage.head.value;
+        return this.top.value;
     }
     push(value) {
         try {
@@ -26,11 +26,11 @@ class Stack {
                 throw new Error(`cannot insert ${value} into the list`);
             }
             let addNode = new Node(value);
-            if (!this.storage.head) {
-                this.storage.head = addNode;
+            if (!this.top) {
+                this.top = addNode;
             } else {
-                addNode.next = this.storage.head;
-                this.storage.head = addNode;
+                addNode.next = this.top;
+                this.top = addNode;
             }
         } catch (e) {
             console.error(e);
@@ -38,11 +38,11 @@ class Stack {
     }
     pop() {
         try {
-            if (!this.storage.head) {
+            if (!this.top) {
                 throw new Error('cant pop off an empty stack');
             }
-            let temp=this.storage.head;
-            this.storage.head=temp.next;
+            let temp=this.top;
+            this.top=temp.next;
             temp.next=null;
             return temp.value;      
         } catch (e) {
@@ -50,7 +50,7 @@ class Stack {
         }
     }
     isEmpty(){
-        if (!this.storage.head) {
+        if (!this.top) {
             return true;
         }else{
             return false;
@@ -61,28 +61,29 @@ class Stack {
 
 
 class Queue{
-    constructor(linkList){
-        this.storage=linkList;
+    constructor(){
+        this.top=null;
+        this.last=null;
     }
     peek() {
-        if (!this.storage.head) {
+        if (!this.top) {
             try {
                 throw new Error('cant find the peek of an empty queue');
             } catch (e) {
                 return e.message;
             }
         }
-        return this.storage.head.value;
+        return this.top.value;
     }
     enqueue(value) {
         try {
             let node1 = new Node(value);
-            if (!this.storage.head) {
-                this.storage.head = node1;
-                this.storage.rear=node1;
+            if (!this.top) {
+                this.top = node1;
+                this.last=node1;
             }else{
-                this.storage.rear.next=node1;
-                this.storage.rear=node1;
+                this.last.next=node1;
+                this.last=node1;
             }
         } catch (e) {
             console.error(e);
@@ -90,11 +91,11 @@ class Queue{
     }
     dequeue(){
         try {
-            if (!this.storage.head) {
+            if (!this.top) {
                 throw new Error('cant dequeue an empty queue');
             }
-            let temp=this.storage.head;
-            this.storage.head=temp.next;
+            let temp=this.top;
+            this.top=temp.next;
             temp.next=null;
             return temp.value;      
         } catch (e) {
@@ -102,7 +103,7 @@ class Queue{
         }
     }
     isEmpty(){
-        if (!this.storage.head) {
+        if (!this.top) {
             return true;
         }else{
             return false;
