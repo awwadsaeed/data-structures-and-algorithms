@@ -112,7 +112,31 @@ class Queue{
 
 
 }
+
+class PsudoQueue {
+    constructor() {
+      this.stack1 = new Stack();
+      this.stack2 = new Stack();
+    }
+    enqueue(value) {
+      while (this.stack1.top) {
+        this.stack2.push(this.stack1.pop());;
+      }
+      this.stack1.push(value);
+      while (this.stack2.top) {
+        this.stack1.push(this.stack2.pop());
+      }
+    }
+    dequeue() {
+  
+      if (!this.stack1.top) {
+        return "psudo queue is empty and cant be dequeued";
+      }
+      return this.stack1.pop();
+    }
+  }
 module.exports={
     Stack,
     Queue,
+    PsudoQueue
 }
