@@ -170,12 +170,31 @@ class AnimalShelter {
             return e.message;
         }
     }
-
-
 }
+function validateBrackets(input){
+    let allBrackets = ['(',')','[',']','<','>','{','}'];
+    let bracketStack = new Stack();
+  
+    for(let i=0;i<input.length;i++) {
+      let bracketsIndex = allBrackets.indexOf(input[i]);
+  
+      if (bracketsIndex === -1){
+        continue;
+      }
+  
+      if(bracketsIndex % 2 === 0) {
+        bracketStack.push(allBrackets[bracketsIndex + 1])
+        
+      } else if(bracketStack.pop() !== allBrackets[bracketsIndex]) {
+        return false;
+      }
+    }
+    return bracketStack.isEmpty();
+  }
 module.exports = {
     Stack,
     Queue,
     PsudoQueue,
-    AnimalShelter
+    AnimalShelter,
+    validateBrackets,
 }
