@@ -92,9 +92,29 @@ class BinarySearchTree extends BinaryTree {
         return false;
     }
 }
-
+function breadthFirst(tree) {
+    let rootNode = tree.root;
+    if (rootNode === null) {
+      return 'cant traverse an empty tree';
+    }
+    let temp = [];
+    let final = [];
+    temp.push(rootNode);
+    while (temp.length > 0) {
+      let currentNode = temp[0];
+      if (currentNode.left !== null) {
+        temp.push(currentNode.left)
+      }
+      if (currentNode.right !== null) {
+        temp.push(currentNode.right)
+      }
+      final.push(temp.shift().value)
+    }
+    return final;
+}
 module.exports = {
     Node,
     BinaryTree,
-    BinarySearchTree
+    BinarySearchTree,
+    breadthFirst
 }
