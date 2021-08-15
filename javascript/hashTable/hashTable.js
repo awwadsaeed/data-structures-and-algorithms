@@ -18,14 +18,14 @@ class LinkedList {
             this.head = node;
         }
     }
-    getValue(key){
+    getValue(key) {
         let curr = this.head;
-        let value=[];
-        while(curr){
-            if(Object.keys(curr.value).includes(key)){
+        let value = [];
+        while (curr) {
+            if (Object.keys(curr.value).includes(key)) {
                 value.push(curr.value[key]);
             }
-            curr=curr.next;
+            curr = curr.next;
         }
         return value;
     }
@@ -37,7 +37,7 @@ class HashTable {
         this.storage = new Array(size);
     }
     hash(key) {
-        const sumCharCode = key.split('').reduce((acc, char) => {
+        const sumCharCode = key.toLowerCase().split('').reduce((acc, char) => {
             return acc + char.charCodeAt(0);
         }, 0);
         const hashKey = (sumCharCode * 19) % this.size;
@@ -75,9 +75,25 @@ class HashTable {
     }
 
 }
+function repeatedWord(string) {
+    if(!string)return 'cannot find words in an empty string';
+    let hashTable = new HashTable(4000);
+    let keys = string.toLowerCase().split(',').join('').split(' ');
+    for (let i = 0; i < keys.length; i++) {
+        if (hashTable.contains(keys[i])) {
+            return keys[i];
+        } else {
+            hashTable.add(keys[i]);
+        }
+    }
+    return 'no repeated words appeard';
+}
 
-module.exports={
+
+
+module.exports = {
     Node,
     LinkedList,
-    HashTable
+    HashTable,
+    repeatedWord
 }
