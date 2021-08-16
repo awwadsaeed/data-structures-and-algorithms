@@ -112,9 +112,22 @@ function breadthFirst(tree) {
     }
     return final;
 }
+
+function repeated(tree1,tree2){
+    let array1 = tree1.preOrder();
+    let array2 = tree2.preOrder();
+    let result = [];
+    for(let i=0;i<array1.length;i++){
+        if(array2.includes(array1[i])){
+            result.push(array1[i]);
+        }
+    }
+    return result;
+}
 module.exports = {
     Node,
     BinaryTree,
     BinarySearchTree,
-    breadthFirst
+    breadthFirst,
+    repeated,
 }
