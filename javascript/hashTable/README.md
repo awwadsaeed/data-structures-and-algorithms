@@ -33,4 +33,4 @@ Arguments: key, value
 
   Returns: Index in the collection for that key
   ## UML:  
-  ![challenge 31](./challenge31.JPG)
+  ![challenge 33](./challenge33.JPG)
