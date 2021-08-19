@@ -4,6 +4,7 @@
   "description": "Data Structures, Algorithms, Code Challenges",
   "main": "index.js",
   "scripts": {
+    "start": "node ./javascript/graph/graph.js",
     "get-challenge": "`which bash` ./code-challenges/bin/get-challenge.sh",
     "test": "jest --verbose --coverage",
     "lint": "eslint '**/*.js'"
